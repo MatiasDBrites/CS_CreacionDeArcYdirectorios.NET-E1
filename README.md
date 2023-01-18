@@ -28,3 +28,26 @@ Directory.CreateDirectory(salesTotalDir);   // Add this line of code
 
 var salesFiles = FindFiles(storesDirectory);
 ```
+
+En el archivo `Program.cs`
+, agregue el código para crear un archivo vacío denominado *totals.txt*
+ en el directorio *salesTotalDir*
+ recién creado. Por el momento, use una cadena vacía para el contenido del archivo:
+
+```csharp
+var currentDirectory = Directory.GetCurrentDirectory();
+var storesDirectory = Path.Combine(currentDirectory, "stores");
+
+var salesTotalDir = Path.Combine(currentDirectory, "salesTotalDir");
+Directory.CreateDirectory(salesTotalDir);
+
+var salesFiles = FindFiles(storesDirectory);
+
+File.WriteAllText(Path.Combine(salesTotalDir, "totals.txt"), String.Empty);
+```
+
+Guardar, Ejecute el código siguiente desde el símbolo del sistema de terminal para ejecutar el programa:
+
+```csharp
+dotnet run
+```
